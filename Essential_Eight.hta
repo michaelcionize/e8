@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTA Script</title>
+    <hta:application id="script" border="thin" innerborder="no" caption="yes" sysmenu="yes" maximizebutton="yes" minimizebutton="yes" scroll="no" singleinstance="yes" windowstate="normal">
+</head>
+<body>
+    <script type="text/vbscript">
+        Sub Window_OnLoad
+            Dim dateStr
+            dateStr = FormatDateTime(Now, vbShortDate)
+            MsgBox "Current Date: " & dateStr
+
+            Dim timeStr
+            timeStr = FormatDateTime(Now, vbShortTime)
+            MsgBox "Current Time: " & timeStr
+
+            Dim hostname
+            Set WshNetwork = CreateObject("WScript.Network")
+            hostname = WshNetwork.ComputerName
+            MsgBox "Hostname: " & hostname
+
+            MsgBox "Essential Eight - Application Control - .hta file test - Ionize"
+        End Sub
+    </script>
+</body>
+</html>
